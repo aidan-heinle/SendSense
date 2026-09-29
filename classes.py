@@ -7,6 +7,10 @@ class Athlete:
     def add_session(self, session):
         self.sessions.append(session)
 
+    def get_session(self, session_id):
+        a = [s for s in self.sessions if s.session_id == session_id]
+        return a[0]
+
 
 class Session:
     def __init__(self, session_id, date):
@@ -16,6 +20,10 @@ class Session:
 
     def add_attempt(self, attempt):
         self.attempts.append(attempt)
+
+    def get_attempt(self, attempt_id):
+        a = [s for s in self.attemtps if s.attempt_id == attempt_id]
+        return a[0]
 
 
 class Attempt:

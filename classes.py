@@ -14,6 +14,9 @@ class Session:
         self.date = date
         self.attempts = []
 
+    def add_attempt(self, attempt):
+        self.attempts.append(attempt)
+
 
 class Attempt:
     def __init__(self, attempt_id, problem):
@@ -25,9 +28,6 @@ class Attempt:
     def set_video(self, video):
         self.video = video
 
-    
-
-
 
 class Problem:
     def __init__(self, problem_id, wall_angle=None, style=None):
@@ -36,12 +36,17 @@ class Problem:
         self.style = style
         self.holds = []
 
+    def add_hold(self, hold):
+        self.holds.append(hold)
+
+    
+
 
 class Hold:
     def __init__(self, hold_id, color=(0,0,0), pos=(0,0)):
         self.hold_id = hold_id
         self.color = color
-        self.pos = pos
+        self.pos = pos # center
 
 
 

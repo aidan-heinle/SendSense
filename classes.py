@@ -59,7 +59,6 @@ class Pose:
     def __init__(self, timestamp):
         self.timestamp = timestamp
 
-        self.nose = None
         self.left_shoulder = None
         self.right_shoulder = None
         self.left_elbow = None

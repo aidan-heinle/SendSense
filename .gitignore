@@ -1,4 +1,7 @@
 vidoes/
+*.mp4
+*.mov
+*.MOV
 
 __pycache__/
 *.py[cod]

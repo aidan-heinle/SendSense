@@ -43,16 +43,41 @@ class Hold:
         self.color = color
         self.pos = pos
 
-    
 
 
 class Video:
-    pass
+    def __init__(self, video_id, file_path):
+        self.video_id = video_id
+        self.file_path = file_path
 
+        self.duration = None
+        self.fps = None
+        self.width = None
+        self.height = None
 
 class Pose:
-    pass
+    def __init__(self, timestamp):
+        self.timestamp = timestamp
 
+        self.nose = None
+        self.left_shoulder = None
+        self.right_shoulder = None
+        self.left_elbow = None
+        self.right_elbow = None
+
+        self.left_wrist = None
+        self.right_wrist = None
+
+        self.left_hip = None
+        self.right_hip = None
+
+        self.left_knee = None
+        self.right_knee = None
+
+        self.left_ankle = None
+        self.right_ankle = None
 
 class Movement:
-    pass
+    def __init__(self, start_time, end_time):
+        self.start_time = start_time
+        self.end_time = end_time

@@ -64,6 +64,7 @@ print(frame)
 
 frame = vProcessor.get_frame(video, 200)
 
+
 if frame is not None:
     f = hDetector.detect(frame)
 
@@ -73,3 +74,4 @@ if frame is not None:
     cv2.imshow("Hold Detection", f)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+

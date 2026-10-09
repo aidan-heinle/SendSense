@@ -32,3 +32,6 @@ class HoldDetector:
 
         return frame
 
+
+    def fast_detect(self, frame):
+        return frame

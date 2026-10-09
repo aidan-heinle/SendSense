@@ -22,29 +22,20 @@ class VideoProcessor:
 
 
     def get_frame(self, video, frame_number):
-
-        # make this faster later
-
-        if frame_number > (video.frame_count-1) or frame_number < 0:
-            return None
-
         v = cv2.VideoCapture(video.file_path)
 
-        if v.isOpened():
-            current_frame = 0
-            while True:
-                success, frame = v.read()
-
-                if not success:
-                    v.release()
-                    return None
-
-                if current_frame == frame_number:
-                    v.release()
-                    return frame
-
-                current_frame += 1
-        else:
+        if not v.isOpened():
             v.release()
             return None
+        
+        v.set(cv2.CAP_PROP_POS_FRAMES, frame_number)
+
+        success, frame = v.read()
+        v.release()
+
+        if success:
+            return frame
+
+        return None
+
             

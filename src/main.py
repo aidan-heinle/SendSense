@@ -59,14 +59,13 @@ print(f"Duration: {video.duration}")
 print(f"Frame Count: {video.frame_count}")
 
 frame = vProcessor.get_frame(video, 200)
-print(frame)
 
 
 frame = vProcessor.get_frame(video, 200)
 
 
 if frame is not None:
-    f = hDetector.detect(frame)
+    f = hDetector.fast_detect(frame)
 
     cv2.namedWindow("Hold Detection", cv2.WINDOW_NORMAL)
     cv2.resizeWindow("Hold Detection", 500, 800)

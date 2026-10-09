@@ -67,6 +67,7 @@ class Video:
         self.fps = None
         self.width = None
         self.height = None
+        self.frame_count = None
 
 class Pose:
     def __init__(self, timestamp):

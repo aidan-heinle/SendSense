@@ -1,5 +1,7 @@
 from model.classes import *
 from model.videoProcessor import VideoProcessor
+from model.HoldDetector import HoldDetector
+import cv2
 
 athlete = Athlete(1, "Aidan")
 
@@ -48,11 +50,26 @@ print(movement.end_time)
 vProcessor = VideoProcessor()
 vProcessor.process_video(video)
 
+hDetector = HoldDetector()
+
 print(f"FPS: {video.fps}")
 print(f"Height: {video.height}")
 print(f"Width: {video.width}")
 print(f"Duration: {video.duration}")
 print(f"Frame Count: {video.frame_count}")
 
-frame = vProcessor.get_frame(video, 585)
+frame = vProcessor.get_frame(video, 200)
 print(frame)
+
+
+frame = vProcessor.get_frame(video, 200)
+
+if frame is not None:
+    f = hDetector.detect(frame)
+
+    cv2.namedWindow("Hold Detection", cv2.WINDOW_NORMAL)
+    cv2.resizeWindow("Hold Detection", 500, 800)
+
+    cv2.imshow("Hold Detection", f)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

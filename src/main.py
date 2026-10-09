@@ -1,5 +1,5 @@
-from src.classes import *
-from src.videoProcessor import VideoProcessor
+from model.classes import *
+from model.videoProcessor import VideoProcessor
 
 athlete = Athlete(1, "Aidan")
 

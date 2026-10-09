@@ -1,6 +1,6 @@
 from model.classes import *
 from model.videoProcessor import VideoProcessor
-from model.HoldDetector import HoldDetector
+from model.holdDetector import HoldDetector
 import cv2
 
 athlete = Athlete(1, "Aidan")

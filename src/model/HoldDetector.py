@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+from model.classes import Hold
 
 
 class HoldDetector:
@@ -48,12 +49,18 @@ class HoldDetector:
 
         contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
+        hold_id = 0 # better method for this later
+        holds = []
+
         for c in contours:
             area = cv2.contourArea(c)
-            if area < 300:
+            if area < 50:
                 continue
 
             x, y, width, height = cv2.boundingRect(c)
+
+            holds.append(Hold(hold_id, (0, 255, 55), (x, y)))
+            hold_id += 1
 
             cv2.rectangle(
                 frame,
@@ -75,4 +82,5 @@ class HoldDetector:
                 2
             )
 
-        return frame
+        return (frame, holds)
+   
